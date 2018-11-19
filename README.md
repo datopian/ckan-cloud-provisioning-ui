@@ -17,7 +17,8 @@ export const AUTH_SERVER = 'http://localhost:4200/';
 ```
 
 ## Using dummy values (for UI development without server)
-Modify `app/config.ts` and set `USE_DUMMY_VALUES` to `true`
+Modify `app/config.ts` and set `USE_DUMMY_VALUES` to `true`.
+
 To test authenticated / non-authenticated access, set the `DUMMY_AUTHENTICATED` variable to `true` or `false`.
 
 ## Code scaffolding
