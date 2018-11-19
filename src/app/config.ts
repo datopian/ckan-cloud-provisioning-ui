@@ -1,6 +1,6 @@
 // API Endpoints
 export const API_SERVER = 'http://192.168.64.3:8092/api';
-export const AUTH_SERVER = 'http://localhost:4200/';
+export const AUTH_SERVER = 'http://localhost:4200';
 
 // Dummy values for UI development
 export const USE_DUMMY_VALUES = false;

@@ -20,8 +20,9 @@
     "@angular/platform-browser": "^7.0.3",
     "@angular/platform-browser-dynamic": "^7.0.3",
     "@angular/router": "^7.0.3",
-    "budgetkey-ng2-auth": "^0.2.0",
+    "budgetkey-ng2-auth": "^0.2.3",
     "core-js": "^2.5.4",
+    "express": "^4.16.4",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },

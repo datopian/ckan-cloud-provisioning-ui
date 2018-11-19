@@ -1,0 +1,33 @@
+language:
+  python
+
+python:
+  - 3.6
+
+sudo: required
+
+env:
+  global:
+  - TRAVIS_CI_OPERATOR=1
+
+services:
+  - docker
+
+install:
+#   - make install
+  - bash .travis.sh install
+
+script:
+#   - make test
+  - bash .travis.sh script
+
+#after_success:
+#  - coveralls
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bash .travis.sh deploy
+  on:
+    all_branches: true
+    condition: $TRAVIS_PULL_REQUEST = "false"
