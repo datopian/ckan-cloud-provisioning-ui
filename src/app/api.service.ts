@@ -4,29 +4,36 @@ import { BehaviorSubject } from 'rxjs';
 import { AuthService } from 'budgetkey-ng2-auth';
 
 import { map } from 'rxjs/operators';
+import { API_SERVER, AUTH_SERVER, USE_DUMMY_VALUES, DUMMY_INSTANCES,
+         DUMMY_TOKEN, DUMMY_USERS, DUMMY_KINDS, DUMMY_PROVIDERS, DUMMY_AUTHENTICATED } from './config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  private SERVER = 'http://192.168.64.3:8092/api';
+  private SERVER = API_SERVER;
 
-  private instances_ = new BehaviorSubject<any[]>([]);
-  private kinds_ = new BehaviorSubject<any[]>([]);
-  private users_ = new BehaviorSubject<any[]>([]);
+  private instances_ = new BehaviorSubject<any[]>(USE_DUMMY_VALUES ? DUMMY_INSTANCES : []);
+  private kinds_ = new BehaviorSubject<any[]>(USE_DUMMY_VALUES ? DUMMY_KINDS : []);
+  private users_ = new BehaviorSubject<any[]>(USE_DUMMY_VALUES ? DUMMY_USERS : []);
   private interval: any = null;
-  private token_ = new BehaviorSubject<string>(null);
-  private providers_: any = null;
+  private token_ = new BehaviorSubject<string>(USE_DUMMY_VALUES ? DUMMY_TOKEN : null);
+  private providers_: any = USE_DUMMY_VALUES ? DUMMY_PROVIDERS : null;
+  private authenticated_: any = USE_DUMMY_VALUES ? DUMMY_AUTHENTICATED : false;
 
   constructor(private http: HttpClient, private auth: AuthService) {
     console.log('init');
-    this.auth.check('http://localhost:4200/')
+    this.auth.check(AUTH_SERVER)
       .subscribe((authInfo) => {
-        if (authInfo && authInfo.providers) {
-          this.providers_ = authInfo.providers;
-        } else {
-          this.providers_ = null;
+        if (authInfo) {
+          if (authInfo.providers) {
+            this.providers_ = authInfo.providers;
+            this.authenticated_ = false;
+          } else {
+            this.providers_ = null;
+            this.authenticated_ = authInfo.authenticated;
+          }
         }
       });
     auth.getJwt()
@@ -52,6 +59,10 @@ export class ApiService {
         });
       }
     });
+  }
+
+  get authenticated() {
+    return this.authenticated_;
   }
 
   get providers() {
