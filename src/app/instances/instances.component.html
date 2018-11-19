@@ -1,0 +1,17 @@
+<div class='title'>
+  <strong>Instances</strong>
+  <a href='#' (click)='create()'>+ Create</a>
+</div>
+<div class='instances'>
+  <app-instance *ngFor='let instance of (api.instances | async)' 
+                [instance]='instance'
+                (edit)='edit($event)'
+  ></app-instance>
+</div>
+
+<app-instance-details-modal
+  *ngIf='selectedInstance'
+  [instance]="selectedInstance"
+  [editMode]="editMode"
+  (close)="selectedInstance=null"
+></app-instance-details-modal>

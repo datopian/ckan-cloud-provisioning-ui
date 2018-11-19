@@ -1,0 +1,21 @@
+<div>
+  <label>Instance Id</label>
+  <input type='text' [(ngModel)]='instance.id' [readonly]='editMode'/>
+</div>
+<div>
+  <label>Admin Email</label>
+  <input type='text' [(ngModel)]='instance.params.ckanAdminEmail' [readonly]='editMode'/>
+</div>
+<div>
+  <label>Kind</label>
+  <select [(ngModel)]='instance.kind' [disabled]='editMode'>
+    <option *ngFor='let option of (api.instanceKinds | async)' [value]="option.id">{{option.title}}</option>
+  </select>
+</div>
+<div>
+  <label>Site Title</label>
+  <input type='text' [(ngModel)]='instance.params.siteTitle'/>
+</div>
+<button class='submit' (click)='submit()'>
+  Apply
+</button>

@@ -1,0 +1,8 @@
+<div>
+<a href='#' (click)='closeClick()'>&times;</a>
+<app-instance-details-form
+  [instance]="instance"
+  [editMode]="editMode"
+  (submitted)='closeClick()'
+></app-instance-details-form>
+</div>

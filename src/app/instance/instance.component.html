@@ -1,0 +1,16 @@
+<ng-container *ngIf='!inProgress'>
+    <ng-container *ngIf='success === null'>
+        <i class="info fas fa-check-circle" *ngIf='instance.active' [title]='instance.status'></i>
+        <i class="info fas fa-exclamation-circle" *ngIf='!instance.active' [title]='instance.status'></i>
+    </ng-container>
+    <ng-container *ngIf='success != null'>
+        <i class="info fas fa-thumbs-up" *ngIf='success'></i>
+        <i class="info fas fa-exclamation-circle" *ngIf='!success'></i>
+    </ng-container>
+</ng-container>
+<i class="info fas fa-spinner" *ngIf='inProgress'></i>
+<small>{{instance.id}}</small>
+<strong>{{instance.params.siteTitle}}</strong>
+<span>{{instance.params.externalAddress}}</span>
+<i class="action fas fa-pencil-alt" (click)='editInstance()'></i>
+<i class="action fas fa-trash-alt" (click)='delete()'></i>

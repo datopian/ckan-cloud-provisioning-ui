@@ -1,0 +1,30 @@
+:host {
+    margin: 30px;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+
+    div, button {
+        margin-bottom: 10px;
+        display: flex;
+        flex-flow: row;
+
+        * {
+            flex: 0 1 auto;
+        }
+
+        label {
+            flex: 0 0 auto;
+            width: 100px;
+        }
+
+        input {
+            min-width: 300px;
+        }
+
+        &.submit {
+            display: block;
+            margin-top: auto;
+        }
+    }
+}

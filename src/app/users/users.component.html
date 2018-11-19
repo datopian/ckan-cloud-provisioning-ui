@@ -1,0 +1,12 @@
+<div class='title'>
+  <strong>Users</strong>
+</div>
+<div class='users'>
+  <app-user *ngFor='let user of (api.users | async)' 
+            [user]='user'                
+  ></app-user>
+</div>
+<div class='footer'>
+  <input type='text' [(ngModel)]='createUserEmail'/>
+  <button (click)='create()'>+ Add User</button>
+</div>
