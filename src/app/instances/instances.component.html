@@ -3,7 +3,7 @@
   <a href='#' (click)='create()'>+ Create</a>
 </div>
 <div class='instances'>
-  <app-instance *ngFor='let instance of (api.instances | async)' 
+  <app-instance *ngFor='let instance of (api.instances | async)'
                 [instance]='instance'
                 (edit)='edit($event)'
   ></app-instance>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { ApiService } from './api.service';
+import * as $ from 'jquery';
+
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -14,5 +17,12 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   constructor(private api: ApiService) {
+  }
+
+  ngOnInit() {
+    //initializing tooltip
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
   }
 }
