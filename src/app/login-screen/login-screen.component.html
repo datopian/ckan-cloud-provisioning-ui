@@ -1,1 +1,2 @@
-<a [href]='login_href()' *ngIf='this.api.providers'>Login</a>
+<a [href]='login_href()' *ngIf='!api.authenticated'>Login</a>
+<h1 *ngIf='api.authenticated && !api.authorized'>No Access</h1>

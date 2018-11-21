@@ -21,19 +21,14 @@ export class ApiService {
   private token_ = new BehaviorSubject<string>(USE_DUMMY_VALUES ? DUMMY_TOKEN : null);
   private providers_: any = USE_DUMMY_VALUES ? DUMMY_PROVIDERS : null;
   private authenticated_: any = USE_DUMMY_VALUES ? DUMMY_AUTHENTICATED : false;
+  private authorized_: any = USE_DUMMY_VALUES ? DUMMY_AUTHENTICATED : false;
 
   constructor(private http: HttpClient, private auth: AuthService) {
-    console.log('init');
     this.auth.check(window.location.href)
       .subscribe((authInfo) => {
         if (authInfo) {
-          if (authInfo.providers) {
-            this.providers_ = authInfo.providers;
-            this.authenticated_ = false;
-          } else {
-            this.providers_ = null;
-            this.authenticated_ = authInfo.authenticated;
-          }
+          this.providers_ = authInfo.providers;
+          this.authenticated_ = authInfo.authenticated;
         }
       });
     auth.getJwt()
@@ -41,20 +36,21 @@ export class ApiService {
           if (token) {
             auth.permission('ckan-cloud-provisioner')
               .subscribe((permission: any) => {
-                console.log(permission);
-                this.token_.next(permission.token);
-                this.startPolling();
+                this.authorized_ = permission.permissions && permission.permissions.level;
+
+                if (this.authorized_) {
+                  this.token_.next(permission.token);
+                  this.startPolling();
+                }
               });
           } else {
             this.stopPolling();
           }
         });
     this.token_.subscribe((token) => {
-      console.log('TOTOTO', token);
       if (token) {
         this.queryInstanceKinds()
         .subscribe((kinds) => {
-          console.log('KIKIKI', kinds);
           this.kinds_.next(kinds);
         });
       }
@@ -63,6 +59,10 @@ export class ApiService {
 
   get authenticated() {
     return this.authenticated_;
+  }
+
+  get authorized() {
+    return this.authorized_;
   }
 
   get providers() {

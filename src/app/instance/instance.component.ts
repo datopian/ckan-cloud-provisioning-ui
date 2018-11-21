@@ -17,7 +17,6 @@ export class InstanceComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    console.log('XXX', this.instance);
   }
 
   delete() {

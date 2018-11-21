@@ -4,8 +4,8 @@ import { ApiService } from './api.service';
 @Component({
   selector: 'app-root',
   template: `
-    <app-login-screen *ngIf='!this.api.authenticated'></app-login-screen>
-    <app-workspace *ngIf='this.api.authenticated'></app-workspace>
+    <app-login-screen *ngIf='!this.api.authorized'></app-login-screen>
+    <app-workspace *ngIf='this.api.authorized'></app-workspace>
   `,
   styles: [
     `
