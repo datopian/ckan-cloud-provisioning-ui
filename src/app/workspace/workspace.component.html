@@ -1,3 +1,6 @@
 <app-header (selectTab)='this.tab=$event'></app-header>
-<app-instances *ngIf='this.tab=="instances"'></app-instances>
-<app-users *ngIf='this.tab=="users"'></app-users>
+
+<div class="container">
+  <app-instances *ngIf='this.tab=="instances"'></app-instances>
+  <app-users *ngIf='this.tab=="users"'></app-users>
+</div>
