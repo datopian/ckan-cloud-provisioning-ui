@@ -2,11 +2,11 @@
   <strong>Users</strong>
 </div>
 <div class='users'>
-  <app-user *ngFor='let user of (api.users | async)' 
-            [user]='user'                
+  <app-user *ngFor='let user of (api.users | async)'
+            [user]='user'
   ></app-user>
 </div>
 <div class='footer'>
-  <input type='text' [(ngModel)]='createUserEmail'/>
-  <button (click)='create()'>+ Add User</button>
+  <input type='text' [(ngModel)]='createUserEmail' class="form-control"/>
+  <button (click)='create()' class="btn btn-primary">+ Add User</button>
 </div>
