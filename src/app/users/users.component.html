@@ -1,12 +1,24 @@
-<div class='title'>
-  <strong>Users</strong>
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Users</h2>
+  </div>
 </div>
-<div class='users'>
+
+<div class='row'>
+  <div class="col-sm-12">
+    <label class="label-main" for="createUserEmail">Add New User</label>
+  </div>
+  <div class="col-sm-4">
+    <input type='text' [(ngModel)]='createUserEmail' id="createUserEmail" class="form-control"/>
+  </div>
+  <div class="col-sm-3">
+    <button (click)='create()' class="btn btn-primary"> Add User</button>
+  </div>
+</div>
+<br/>
+<div class='users card-custom '>
+  <h5>All Users</h5>
   <app-user *ngFor='let user of (api.users | async)'
             [user]='user'
   ></app-user>
-</div>
-<div class='footer'>
-  <input type='text' [(ngModel)]='createUserEmail' class="form-control"/>
-  <button (click)='create()' class="btn btn-primary">+ Add User</button>
 </div>
