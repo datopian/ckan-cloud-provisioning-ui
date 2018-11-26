@@ -51,9 +51,22 @@ label.label-main {
   margin-top:20px;
   border-radius:4px;
   box-shadow: 0px 2px 9px #d6d6d6;
+  margin-bottom:40px;
 }
 
 
 .card-custom h5 {
       font-size: 1.15em;
+}
+
+
+/* Floats */
+.custom-text-right {
+  text-align:right;
+}
+
+@media screen and (max-width:768px){
+  .custom-text-right {
+    text-align:left;
+  }
 }

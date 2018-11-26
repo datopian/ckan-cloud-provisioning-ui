@@ -1,0 +1,30 @@
+.login-wrapper {
+    background: #fff;
+    height: 100vh;
+    width: 100%;
+}
+.login {
+    position: relative;
+    top:60%;
+}
+
+.login h1 {
+    font-size: 1.4em;
+    color: #005085;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 30px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    margin-top:20px;
+    color: #ce0000;    
+}
+
+.login p {
+    padding-top:5px;
+    color:#484848;
+    font-weight: 600;
+}
