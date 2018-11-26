@@ -24,7 +24,7 @@ export class InstanceComponent implements OnInit {
         .subscribe((password) => {
           const confirmed = window.confirm(`Connect to ${this.instance.id}? Password is: ${password}`);
           if (confirmed) {
-            window.open(this.instance.parameters.externalAddress, '__blank');
+            window.open(this.instance.parameters.siteUrl, '__blank');
           }
         });
   }
