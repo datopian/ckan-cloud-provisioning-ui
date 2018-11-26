@@ -2,4 +2,71 @@
 body {
     margin: 0;
     padding: 0;
+    background-color:#f8f8f8;
+    font-family: 'Lato', sans-serif;
+    color:#323232;
+}
+
+h4,h5 {
+  color:#7b7b7c;
+  font-weight:bold;
+}
+
+
+/* Form Elements */
+.btn-primary {
+  background-color:#004886;
+  border-color:#004886;
+}
+
+.btn-primary:hover,.btn-primary:focus,.btn-primary:active {
+  background-color:#015085 !important;
+}
+
+label.label-main {
+  margin-top:22px;
+  margin-bottom:13px;
+  color:#323232;
+  font-size:17px;
+  font-weight:bold;
+}
+
+.modal-form label.label-main{
+  margin-top:10px;
+  margin-bottom:4px;
+  font-size:1em;
+}
+
+.form-control {
+  border:2px solid #e7ebed;
+}
+
+
+
+/* Cards */
+.card-custom {
+  background-color:#fff;
+  height:auto;
+  padding:20px;
+  margin-top:20px;
+  border-radius:4px;
+  box-shadow: 0px 2px 9px #d6d6d6;
+  margin-bottom:40px;
+}
+
+
+.card-custom h5 {
+      font-size: 1.15em;
+}
+
+
+/* Floats */
+.custom-text-right {
+  text-align:right;
+}
+
+@media screen and (max-width:768px){
+  .custom-text-right {
+    text-align:left;
+  }
 }

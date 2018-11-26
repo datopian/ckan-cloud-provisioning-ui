@@ -1,4 +1,46 @@
 :host {
+
+    .instance {
+      border-bottom:1px solid #eaeaea;
+      padding:15px 0;
+      margin:0;
+    }
+
+    .instance {
+      .info {
+        margin-right: 15px;
+        color: #717171;
+        font-size:1.2em;
+        position:relative;
+        top:3px;
+      }
+
+      .color-blue {
+        color:#015085;
+      }
+
+      small,strong,span {
+        padding-right:25px;
+        margin-top:3px;
+      }
+
+      .btn:first-child {
+        margin-right:15px;
+      }
+      .btn {
+        color:#444;
+      }
+
+      @media screen and (max-width:768px){
+        span {
+          display:block;
+        }
+        .btn {
+          margin-top:10px;
+        }
+      }
+    }
+    /*
     display: flex;
     border: 1px solid #ccc;
     box-shadow: 3px 3px 5px #444;
@@ -26,5 +68,5 @@
 
     i.info {
         cursor: help;
-    }
+    }*/
 }

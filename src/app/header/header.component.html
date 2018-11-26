@@ -1,6 +1,48 @@
-<p>
-  [GSA]
-</p>
-<a href='#' (click)='emit("instances")'>Instances</a>
-<a href='#' (click)='emit("users")'>Users</a>
+<!-- Grey with black text -->
+<header class="bg-light">
+  <div class="container">
+    <div class="nav-top">
+      <div class="row">
+        <div class="col-4">
+          <!-- Brand -->
+          <a href="#"><img src="./assets/nav-logo.png" width=40/></a>
+        </div>
+        <div class="col-8 text-right">
 
+          <div class="dropdown">
+            <a href="#" class="user-link dropdown-toggle" data-toggle="dropdown">user@example.com <i class="fas fa-angle-down"></i></a>
+
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">My Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Logout</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-md bg-light navbar-light">
+    <div class="container">
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href='#' (click)='emit("instances")'>Instances</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" href='#' (click)='emit("users")'>Users</a>
+        </li>
+      </ul>
+    </div>
+
+    </div>
+  </nav>
+</header>

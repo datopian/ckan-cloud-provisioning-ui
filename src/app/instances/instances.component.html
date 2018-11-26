@@ -1,9 +1,18 @@
-<div class='title'>
-  <strong>Instances</strong>
-  <a href='#' (click)='create()'>+ Create</a>
+<div class="row">
+  <div class="col-sm-6">
+    <h2>Instances</h2>
+  </div>
+
+  <div class="col-sm-6 custom-text-right">
+      <a href='#' class='btn btn-primary' (click)='create()'> Create Instance</a>
+  </div>
 </div>
-<div class='instances'>
-  <app-instance *ngFor='let instance of (api.instances | async)' 
+
+
+
+<div class='card-custom instances'>
+  <h5>All Instances</h5>
+  <app-instance *ngFor='let instance of (api.instances | async)'
                 [instance]='instance'
                 (edit)='edit($event)'
   ></app-instance>

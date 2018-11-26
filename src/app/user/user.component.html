@@ -1,2 +1,8 @@
-<strong>{{user.key}}</strong>
-<i class="action fas fa-trash-alt" (click)='delete()' *ngIf='!user.self'></i>
+<div class="row user">
+  <div class="col-sm-9">
+    <strong>{{user.key}}</strong>
+  </div>
+  <div class="col-sm-3 custom-text-right">
+  <button class="btn btn-default btn-sm action" (click)='delete()' *ngIf='!user.self'> <i class="fas fa-trash-alt"></i>  Delete</button>
+  </div>
+</div>

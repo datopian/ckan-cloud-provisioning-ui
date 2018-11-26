@@ -11,6 +11,7 @@ export class InstanceDetailsFormComponent implements OnInit {
   @Input() instance: any;
   @Input() editMode: boolean;
   @Output() submitted = new EventEmitter<boolean>();
+  inProgress = false;
 
   constructor(private api: ApiService) {
   }
@@ -22,10 +23,11 @@ export class InstanceDetailsFormComponent implements OnInit {
   }
 
   submit() {
+    this.inProgress = true;
     this.api.createOrUpdate(this.instance)
       .subscribe((result) => {
-        // todo - do something with result?
+        this.api.queryInstances();
+        this.submitted.emit(true);
       });
-    this.submitted.emit(true);
   }
 }
