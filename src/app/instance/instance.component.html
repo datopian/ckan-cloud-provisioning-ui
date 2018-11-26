@@ -2,8 +2,8 @@
   <div class="col-sm-9">
     <ng-container *ngIf='!inProgress'>
         <ng-container *ngIf='success === null'>
-            <i class="info fas fa-check-circle color-blue" *ngIf='instance.active' data-toggle="tooltip" [title]='instance.status'></i>
-            <i class="info fas fa-exclamation-circle" *ngIf='!instance.active' data-toggle="tooltip" [title]='instance.status'></i>
+            <i class="info fas fa-check-circle color-blue" *ngIf='instance.active' data-toggle="tooltip" [title]='instance.status || "active"'></i>
+            <i class="info fas fa-exclamation-circle" *ngIf='!instance.active' data-toggle="tooltip" [title]='instance.status || "inactive"'></i>
         </ng-container>
         <ng-container *ngIf='success != null'>
             <i class="info fas fa-thumbs-up color-blue" *ngIf='success'></i>
