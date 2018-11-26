@@ -1,21 +1,44 @@
-<div>
-  <label>Instance Id</label>
-  <input type='text' [(ngModel)]='instance.id' [readonly]='editMode'/>
+<div class="modal-form">
+  <div class="row">
+    <div class="col-sm-12">
+      <label class='label-main'>Instance Id</label>
+    </div>
+    <div class="col-sm-12">
+      <input type='text' [(ngModel)]='instance.id' class='form-control' [readonly]='editMode'/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <label class='label-main'>Admin Email</label>
+    </div>
+    <div class="col-sm-12">
+        <input type='text' [(ngModel)]='instance.params.ckanAdminEmail'  class='form-control' [readonly]='editMode'/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <label class='label-main'>Kind</label>
+    </div>
+    <div class="col-sm-12">
+        <select [(ngModel)]='instance.kind' [disabled]='editMode'  class='form-control'>
+          <option *ngFor='let option of (api.instanceKinds | async)' [value]="option.id">{{option.title}}</option>
+        </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <label class='label-main'>Site Title</label>
+    </div>
+    <div class="col-sm-12">
+        <input type='text' class='form-control' [(ngModel)]='instance.params.siteTitle'/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <button class='submit' (click)='submit()' class='btn btn-primary float-right'>
+            Create Instance
+        </button>
+    </div>
+  </div>
+  
 </div>
-<div>
-  <label>Admin Email</label>
-  <input type='text' [(ngModel)]='instance.params.ckanAdminEmail' [readonly]='editMode'/>
-</div>
-<div>
-  <label>Kind</label>
-  <select [(ngModel)]='instance.kind' [disabled]='editMode'>
-    <option *ngFor='let option of (api.instanceKinds | async)' [value]="option.id">{{option.title}}</option>
-  </select>
-</div>
-<div>
-  <label>Site Title</label>
-  <input type='text' [(ngModel)]='instance.params.siteTitle'/>
-</div>
-<button class='submit' (click)='submit()'>
-  Apply
-</button>

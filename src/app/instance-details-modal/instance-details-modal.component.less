@@ -10,22 +10,39 @@
     align-items: center;
     justify-content: center;
 
-    div {
-        background-color: white;
+    h5 {
+        margin:25px 10px 0 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    div.modal-custom {
+        background-color:#f8f8f8;
         max-width: 80vw;
-        min-width: 300px;
+        min-width: 00px;
         height: 80vh;
         position: relative;
-        display: flex;
-        flex-flow: column;
+        border-radius:4px;
 
         a {
-            text-decoration: none;
-            color: black;
-            position: absolute;
-            right: 10px;
-            top: 10px;    
+            .fas {
+                text-decoration: none;
+                color: black;
+                position: absolute;
+                right: 7px;
+                top: 10px;
+                font-size: 17px;
+            } 
+
+            .fas:hover {
+                color:#383838;
+            }
         }
         
+        .label-main {
+            font-size:1em;
+            margin-top:10px;
+            margin-bottom:0;
+        }
     }
 }

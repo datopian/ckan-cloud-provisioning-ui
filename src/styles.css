@@ -31,6 +31,12 @@ label.label-main {
   font-weight:bold;
 }
 
+.modal-form label.label-main{
+  margin-top:10px;
+  margin-bottom:4px;
+  font-size:1em;
+}
+
 .form-control {
   border:2px solid #e7ebed;
 }
