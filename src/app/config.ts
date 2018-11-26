@@ -4,7 +4,7 @@ export const AUTH_SERVER = 'https://datagov-cloud-provisioning-api.ckan.io';
 
 // Dummy values for UI development
 export const USE_DUMMY_VALUES = true;
-export const DUMMY_AUTHENTICATED = true;
+export const DUMMY_AUTHENTICATED = false;
 
 export const DUMMY_TOKEN = 'xxx';
 export const DUMMY_INSTANCES = [
