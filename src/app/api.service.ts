@@ -130,6 +130,13 @@ export class ApiService {
                );
   }
 
+  getConnectionInfo(id) {
+    return this.http.get(`${this.SERVER}/instance/conninfo/${id}?jwt=${this.token}`)
+               .pipe(
+                 map((ret: any) => ret.password)
+               );
+  }
+
   createOrUpdate(body) {
     return this.http.post(`${this.SERVER}/instance?jwt=${this.token}`, body);
   }
