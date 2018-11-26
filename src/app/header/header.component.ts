@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'budgetkey-ng2-auth';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output('selectTab') selectTab = new EventEmitter<string>();
+  @Output() selectTab = new EventEmitter<string>();
+  email = '';
 
-  constructor() { }
+  constructor(private auth: AuthService) {
+    this.auth.getUser()
+        .subscribe((user) => {
+          this.email = user.profile.email;
+        });
+  }
 
   ngOnInit() {
   }
