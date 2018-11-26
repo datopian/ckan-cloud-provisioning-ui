@@ -18,6 +18,6 @@
   <div class="col-sm-4 custom-text-right">
     <button class="btn btn-default btn-sm action" (click)='editInstance()'> <i class="fas fa-pencil-alt" ></i> Edit</button>
     <button class="btn btn-default btn-sm action"  (click)='delete()'> <i class="fas fa-trash-alt"></i>  Delete</button>
-    <button class="btn btn-default btn-sm action" (click)='connect()'> <i class="fas fa-external-link-alt" ></i> Connect</button>
+    <button class="btn btn-default btn-sm action" (click)='connect()' *ngIf='instance.active'> <i class="fas fa-external-link-alt" ></i> Connect</button>
   </div>
 </div>
