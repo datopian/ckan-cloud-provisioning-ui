@@ -24,3 +24,9 @@
   [editMode]="editMode"
   (close)="selectedInstance=null"
 ></app-instance-details-modal>
+
+<app-instance-connection-modal
+  *ngIf='receivedDeets'
+  [deets]="receivedDeets"
+  (close)="receivedDeets=null"
+></app-instance-connection-modal>

@@ -10,10 +10,14 @@ export class InstancesComponent implements OnInit {
 
   editMode = false;
   selectedInstance: any = null;
+  receivedDeets: any = null;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.api.connectionDetails.subscribe((deets) => {
+      this.receivedDeets = deets;
+    });
   }
 
   create() {

@@ -1,0 +1,36 @@
+<div class="modal-form">
+  <div class="row">
+    <div class="col-sm-12">
+      <label class='label-main'>Instance Id</label>
+    </div>
+    <div class="col-sm-12">
+      <input type='text' [(ngModel)]='deets.id' class='form-control' [readonly]='true'/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <label class='label-main'>Admin Password</label>
+    </div>
+    <div class="col-sm-12">
+        <input type='text' [(ngModel)]='deets.password'  class='form-control' [readonly]='true'/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <label class='label-main'>Site URL</label>
+    </div>
+    <div class="col-sm-12">
+        <a [href]='deets.params.siteUrl' target='__blank'>{{deets.params.siteUrl}}</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <label class='label-main'>Creation log</label>
+    </div>
+    <div class="col-sm-12">
+        <pre>
+          {{deets.log}}
+        </pre>
+    </div>
+  </div>
+</div>

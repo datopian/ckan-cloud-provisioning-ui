@@ -20,13 +20,7 @@ export class InstanceComponent implements OnInit {
   }
 
   connect() {
-    this.api.getConnectionInfo(this.instance.id)
-        .subscribe((password) => {
-          const confirmed = window.confirm(`Connect to ${this.instance.id}? Password is: ${password}`);
-          if (confirmed) {
-            window.open(this.instance.params.siteUrl, '__blank');
-          }
-        });
+    this.api.getConnectionInfo(this.instance.id, this.instance);
   }
 
   delete() {

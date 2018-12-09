@@ -15,6 +15,8 @@ import { UserComponent } from './user/user.component';
 import { InstanceDetailsFormComponent } from './instance-details-form/instance-details-form.component';
 import { InstanceDetailsModalComponent } from './instance-details-modal/instance-details-modal.component';
 import { AUTH_SERVER } from './config';
+import { InstanceConnectionModalComponent } from './instance-connection-modal/instance-connection-modal.component';
+import { InstanceConnectionFormComponent } from './instance-connection-form/instance-connection-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AUTH_SERVER } from './config';
     UsersComponent,
     UserComponent,
     InstanceDetailsFormComponent,
-    InstanceDetailsModalComponent
+    InstanceDetailsModalComponent,
+    InstanceConnectionModalComponent,
+    InstanceConnectionFormComponent
   ],
   imports: [
     BrowserModule,
