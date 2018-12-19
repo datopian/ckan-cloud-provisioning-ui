@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkspaceComponent implements OnInit {
 
-  private tab = 'instances';
+  public tab = 'instances';
 
   constructor() { }
 

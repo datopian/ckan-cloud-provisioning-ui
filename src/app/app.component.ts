@@ -16,7 +16,7 @@ declare var $: any;
   ]
 })
 export class AppComponent {
-  constructor(private api: ApiService) {
+  constructor(public api: ApiService) {
   }
 
   ngOnInit() {

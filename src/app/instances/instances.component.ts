@@ -12,7 +12,7 @@ export class InstancesComponent implements OnInit {
   selectedInstance: any = null;
   receivedDeets: any = null;
 
-  constructor(private api: ApiService) { }
+  constructor(public api: ApiService) { }
 
   ngOnInit() {
     this.api.connectionDetails.subscribe((deets) => {

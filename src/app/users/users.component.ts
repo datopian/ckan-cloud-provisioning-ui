@@ -10,7 +10,7 @@ export class UsersComponent implements OnInit {
 
   createUserEmail = '';
 
-  constructor(private api: ApiService) { }
+  constructor(public api: ApiService) { }
 
   ngOnInit() {
   }

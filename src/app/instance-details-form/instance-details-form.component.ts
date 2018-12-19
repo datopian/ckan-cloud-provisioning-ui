@@ -13,7 +13,7 @@ export class InstanceDetailsFormComponent implements OnInit {
   @Output() submitted = new EventEmitter<boolean>();
   inProgress = false;
 
-  constructor(private api: ApiService) {
+  constructor(public api: ApiService) {
   }
 
   ngOnInit() {

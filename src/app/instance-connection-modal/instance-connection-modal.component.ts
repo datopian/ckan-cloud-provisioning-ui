@@ -11,7 +11,7 @@ export class InstanceConnectionModalComponent implements OnInit {
   @Input() deets: any;
   @Output() close = new EventEmitter<any>(null);
 
-  constructor(private api: ApiService) { }
+  constructor(public api: ApiService) { }
 
   ngOnInit() {
   }

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { AuthModule, AUTH_CONFIG_TOKEN } from 'budgetkey-ng2-auth';
+import { BudgetkeyNg2AuthModule, AUTH_CONFIG_TOKEN } from 'budgetkey-ng2-auth';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { HeaderComponent } from './header/header.component';
 import { InstancesComponent } from './instances/instances.component';
@@ -37,7 +37,7 @@ import { InstanceConnectionFormComponent } from './instance-connection-form/inst
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AuthModule,
+    BudgetkeyNg2AuthModule,
   ],
   providers: [
     {

@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
 })
 export class LoginScreenComponent implements OnInit {
 
-  constructor(private api: ApiService) {
+  constructor(public api: ApiService) {
   }
 
   login_href() {
