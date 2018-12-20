@@ -5,7 +5,7 @@ import { AuthService } from 'budgetkey-ng2-auth';
 
 import { map } from 'rxjs/operators';
 import { API_SERVER, USE_DUMMY_VALUES, DUMMY_INSTANCES,
-         DUMMY_TOKEN, DUMMY_USERS, DUMMY_KINDS, DUMMY_PROVIDERS, DUMMY_AUTHENTICATED, DUMMY_DEETS } from './config';
+         DUMMY_TOKEN, DUMMY_USERS, DUMMY_KINDS, DUMMY_PROVIDERS, DUMMY_AUTHENTICATED, DUMMY_DEETS, DUMMY_AUTHORIZED } from './config';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class ApiService {
   private token_ = new BehaviorSubject<string>(USE_DUMMY_VALUES ? DUMMY_TOKEN : null);
   private providers_: any = USE_DUMMY_VALUES ? DUMMY_PROVIDERS : null;
   private authenticated_: any = USE_DUMMY_VALUES ? DUMMY_AUTHENTICATED : false;
-  private authorized_: any = USE_DUMMY_VALUES ? DUMMY_AUTHENTICATED : false;
+  private authorized_: any = USE_DUMMY_VALUES ? DUMMY_AUTHORIZED : false;
 
   constructor(private http: HttpClient, private auth: AuthService) {
     this.auth.check(window.location.href)

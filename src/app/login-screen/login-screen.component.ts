@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { AuthService } from 'budgetkey-ng2-auth';
 
 @Component({
   selector: 'app-login-screen',
@@ -8,7 +9,16 @@ import { ApiService } from '../api.service';
 })
 export class LoginScreenComponent implements OnInit {
 
-  constructor(public api: ApiService) {
+  email = '';
+
+  constructor(public api: ApiService,
+              private auth: AuthService) {
+    this.auth.getUser()
+        .subscribe((user) => {
+          if (user && user.profile) {
+            this.email = user.profile.email;
+          }
+        });
   }
 
   login_href() {
@@ -20,6 +30,10 @@ export class LoginScreenComponent implements OnInit {
       }
     }
     return '#';
+  }
+
+  logout() {
+    this.auth.logout('/');
   }
 
   ngOnInit() {
