@@ -25,4 +25,8 @@ export class HeaderComponent implements OnInit {
     this.selectTab.emit(tab);
   }
 
+  logout() {
+    this.auth.logout('/');
+  }
+
 }
