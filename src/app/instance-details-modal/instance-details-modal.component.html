@@ -1,5 +1,6 @@
 <div class="modal-custom">
-  <h5>Creatae/Edit Instance</h5>
+  <h5 *ngIf='editMode'>Edit Instance</h5>
+  <h5 *ngIf='!editMode'>Create Instance</h5>
 <a (click)='closeClick()'><i class="fas fa-times-circle"></i></a>
 <app-instance-details-form
   [instance]="instance"

@@ -48,7 +48,8 @@
               <i class="info fas fa-spinner fa-spin"></i>
               &nbsp;
             </ng-container>
-            Create Instance
+            <ng-container *ngIf='editMode'>Apply Changes</ng-container>
+            <ng-container *ngIf='!editMode'>Create Instance</ng-container>            
         </button>
     </div>
   </div>
