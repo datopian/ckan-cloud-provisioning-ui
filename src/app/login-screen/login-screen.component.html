@@ -16,7 +16,7 @@
                                 <i class="fas fa-exclamation-triangle"></i> No Access
                             </h3>
                             <span *ngIf='email && email.length > 0'>
-                                Logged in as {{email}}, <a href='#' (click)='logout()'>Logout</a>
+                                Logged in as {{email}}, <a (click)='logout()'>Logout</a>
                             </span>
                         </ng-container>
 

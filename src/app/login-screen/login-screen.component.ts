@@ -34,6 +34,7 @@ export class LoginScreenComponent implements OnInit {
 
   logout() {
     this.auth.logout('/');
+    window.location.reload(true);
   }
 
   ngOnInit() {
