@@ -1,7 +1,7 @@
-language: python
-python:
-- 3.6
+language: node_js
 sudo: required
+node_js:
+- '8'
 env:
   global:
   - TRAVIS_CI_OPERATOR=1
@@ -9,9 +9,18 @@ env:
   - secure: gtvV1t3IFfFHY8sEIsPBLGhjehkIR5N63zzM4uh9MsYrLwPU8EH839oAtcCool0Oma8Q7/pMuPu5k2uguTMGjtEeG4+RcsA7G4oDVdfufxwG2RA9ce0oQa+SLMrJ81y6URIPaZdE7uKWdt6h82ftZiB9Nve6oYFPRcCZekAeeHooodG6MvOMQ6aUCio45fPO1zFJbsjF1lkoVYMNs3KpsuyfYAEy1wHQpeHEOhdgAVakT1JDl3pWGFi89NNzXOoLuhM4OTW2BnyQ1WB9hVNLwjChWRlYqVZa5Kcxa8u05oL2UxZYGxit/ICbL94C7J35qGrpx06JFPdoWYSwb30MloFnRRHVKuttNG+WWgWx+1we9kZt2H4xapRi0iU3ckBBKt7nI1fVzf+ITuEkP/0CDnrDb6bTzIdFw+2tG8YPcPGv7IhozO2xRV/Nutx6iPMJBzRze5CaovR/ffu0/kVQnnI7qQib6x03WD/xGiP/KalbM8RxMtapLoKZk5Sr4liW8KlbKOw1VnHQnfS6FILuMpJ3rnI4UrvzJIprPrp28qLn04ZuopMfKS6AYllz3zwD2akWzLmLH1ZRzPp3T5lwSl+rNkYLaerjfNoZqFQGrK4CzZiA1hutH5Mrvu+C/7ttBb2ewaX3idMcNbzDkECsm9l9KTU/ZHoZD8srfVWiM90=
 services:
 - docker
+before_install:
+- npm install -g @angular/cli
 install:
+- npm install
+- webdriver-manager update
 - bash .travis.sh install
+before_script:
+- sh -e /etc/init.d/xvfb start
 script:
+- ng lint
+- ng test --no-watch
+- ng build --prod
 - bash .travis.sh script
 deploy:
   skip_cleanup: true
