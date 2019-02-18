@@ -103,8 +103,9 @@ export const DUMMY_PROVIDERS = {
         url: 'http://github.com/ViderumGlobal'
     }
 };
+
 export const DUMMY_DEETS = {
     password: '12345678',
     log: ['this', 'is', 'a', 'log'],
     id: 'instance_id'
-}
+};

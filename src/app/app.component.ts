@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import * as $ from 'jquery';
 
@@ -15,13 +15,13 @@ declare var $: any;
     `
   ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(public api: ApiService) {
   }
 
   ngOnInit() {
-    //initializing tooltip
-    $(document).ready(function(){
+    // initializing tooltip
+    $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
     });
   }

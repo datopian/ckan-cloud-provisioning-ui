@@ -81,7 +81,7 @@ export class ApiService {
   get connectionDetails() {
     return this.connectionDetails_;
   }
-  
+
   get instanceKinds() {
     return this.kinds_;
   }
