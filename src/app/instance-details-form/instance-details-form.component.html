@@ -1,10 +1,11 @@
 <div class="modal-form">
+  <form #heroForm="ngForm">
   <div class="row" *ngIf='editMode'>
     <div class="col-sm-12">
       <label class='label-main'>Instance Id</label>
     </div>
     <div class="col-sm-12">
-      <input type='text' [(ngModel)]='instance.id' class='form-control' [readonly]='editMode'/>
+      <input type='text' name='id' [(ngModel)]='instance.id' class='form-control' [readonly]='editMode'/>
     </div>
   </div>
   <div class="row">
@@ -12,7 +13,7 @@
         <label class='label-main'>Admin Email</label>
     </div>
     <div class="col-sm-12">
-        <input type='text' [(ngModel)]='instance.params.ckanAdminEmail'  class='form-control' [readonly]='editMode'/>
+        <input type='text' name='params.ckanAdminEmail' [(ngModel)]='instance.params.ckanAdminEmail'  class='form-control' [readonly]='editMode'/>
     </div>
   </div>
   <div class="row">
@@ -20,7 +21,7 @@
         <label class='label-main'>Kind</label>
     </div>
     <div class="col-sm-12">
-        <select [(ngModel)]='instance.kind' [disabled]='editMode'  class='form-control'>
+        <select name='kind' [(ngModel)]='instance.kind' [disabled]='editMode'  class='form-control'>
           <option *ngFor='let option of (api.instanceKinds | async)' [value]="option.id">{{option.title}}</option>
         </select>
     </div>
@@ -30,7 +31,7 @@
         <label class='label-main'>Site Title</label>
     </div>
     <div class="col-sm-12">
-        <input type='text' class='form-control' [(ngModel)]='instance.params.siteTitle'/>
+        <input name='params.siteTitle' type='text' class='form-control' [(ngModel)]='instance.params.siteTitle'/>
     </div>
   </div>
   <div class="row">
@@ -38,12 +39,22 @@
         <label class='label-main'>Site Primary Color</label>
     </div>
     <div class="col-sm-12">
-        <input type='text' class='form-control' [(ngModel)]='instance.params.ckanPrimaryColor'/>
+        <div class='colors'>
+          <input #color='ngModel'
+                id='color'
+                name='params.ckanPrimaryColor'
+                type='text' class='form-control' 
+                pattern="^#[a-fA-F0-9]{6}$"
+                placeholder='#187794'
+                [(ngModel)]='instance.params.ckanPrimaryColor'/>
+          <p *ngIf='!color.valid' class='errors'>Please input a valid RGB color as hex string (e.g. '#406080')</p>
+        </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
-        <button class='submit' (click)='submit()' class='btn btn-primary float-right' [disabled]='inProgress'>
+        <button class='submit' (click)='submit()' class='btn btn-primary float-right' 
+                [disabled]='inProgress || !heroForm.form.valid'>
             <ng-container *ngIf='inProgress'>
               <i class="info fas fa-spinner fa-spin"></i>
               &nbsp;
@@ -53,5 +64,5 @@
         </button>
     </div>
   </div>
-  
+  </form>
 </div>
