@@ -23,11 +23,13 @@ export class InstanceDetailsFormComponent implements OnInit {
   }
 
   submit() {
-    this.inProgress = true;
-    this.api.createOrUpdate(this.instance)
-      .subscribe((result) => {
-        this.api.queryInstances();
-        this.submitted.emit(true);
-      });
+    if (!this.inProgress) {
+      this.inProgress = true;
+      this.api.createOrUpdate(this.instance)
+        .subscribe((result) => {
+          this.api.queryInstances();
+          this.submitted.emit(true);
+        });
+    }
   }
 }
