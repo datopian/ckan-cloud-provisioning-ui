@@ -1,6 +1,6 @@
 // API Endpoints
-export const API_SERVER = 'https://datagov-cloud-provisioning-api.ckan.io/api';
-export const AUTH_SERVER = 'https://datagov-cloud-provisioning-api.ckan.io';
+export const API_SERVER = '/api';
+export const AUTH_SERVER = '';
 
 // Dummy values for UI development
 export const USE_DUMMY_VALUES = false;
