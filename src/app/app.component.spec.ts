@@ -42,7 +42,7 @@ describe('AppComponent', () => {
       providers: [
         {provide: AUTH_CONFIG_TOKEN,
          useValue: {
-          'authServerUrl': AUTH_SERVER,
+          'authServerUrl': 'https://next.obudget.org',
           'jwtLocalStorageKey': 'jwt',
           'jwtQueryParam': 'jwt',
           'profilePagePath': ''
