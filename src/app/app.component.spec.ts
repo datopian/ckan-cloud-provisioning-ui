@@ -14,8 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BudgetkeyNg2AuthModule, getAuthServiceConfigProvider, AUTH_CONFIG_TOKEN } from 'budgetkey-ng2-auth';
-import { AUTH_SERVER } from './config';
+import { BudgetkeyNg2AuthModule, AUTH_CONFIG_TOKEN } from 'budgetkey-ng2-auth';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
