@@ -15,9 +15,6 @@ export class InstancesComponent implements OnInit {
   constructor(public api: ApiService) { }
 
   ngOnInit() {
-    this.api.connectionDetails.subscribe((deets) => {
-      this.receivedDeets = deets;
-    });
   }
 
   create() {
@@ -28,6 +25,10 @@ export class InstancesComponent implements OnInit {
   edit(instance) {
     this.editMode = true;
     this.selectedInstance = instance;
+  }
+
+  connnect(instance) {
+    this.receivedDeets = instance;
   }
 
 }

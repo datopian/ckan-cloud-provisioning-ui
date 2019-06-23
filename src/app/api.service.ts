@@ -17,7 +17,6 @@ export class ApiService {
   private instances_ = new BehaviorSubject<any[]>(USE_DUMMY_VALUES ? DUMMY_INSTANCES : []);
   private kinds_ = new BehaviorSubject<any[]>(USE_DUMMY_VALUES ? DUMMY_KINDS : []);
   private users_ = new BehaviorSubject<any[]>(USE_DUMMY_VALUES ? DUMMY_USERS : []);
-  private connectionDetails_ = new BehaviorSubject<any>(USE_DUMMY_VALUES ? DUMMY_DEETS : null);
   private interval: any = null;
   private token_ = new BehaviorSubject<string>(USE_DUMMY_VALUES ? DUMMY_TOKEN : null);
   private providers_: any = USE_DUMMY_VALUES ? DUMMY_PROVIDERS : null;
@@ -78,10 +77,6 @@ export class ApiService {
     return this.users_;
   }
 
-  get connectionDetails() {
-    return this.connectionDetails_;
-  }
-
   get instanceKinds() {
     return this.kinds_;
   }
@@ -133,23 +128,6 @@ export class ApiService {
                .pipe(
                  map((ret: any) => ret.kinds)
                );
-  }
-
-  getConnectionInfo(id, options: any) {
-    this.http.get(`${this.SERVER}/instance/conninfo/${id}?jwt=${this.token}`)
-               .pipe(
-                 map((ret: any) => {
-                   return {
-                     password: ret.password,
-                     id: id,
-                     log: ret.log.join('\n')
-                   };
-                 })
-               )
-               .subscribe((deets: any) => {
-                 const item = Object.assign({}, options, deets);
-                 this.connectionDetails_.next(item);
-               });
   }
 
   createOrUpdate(body) {

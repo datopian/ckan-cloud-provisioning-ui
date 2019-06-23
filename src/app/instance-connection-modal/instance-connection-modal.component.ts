@@ -20,7 +20,4 @@ export class InstanceConnectionModalComponent implements OnInit {
     this.close.emit(null);
   }
 
-  refresh() {
-    this.api.getConnectionInfo(this.deets.id, this.deets);
-  }
 }

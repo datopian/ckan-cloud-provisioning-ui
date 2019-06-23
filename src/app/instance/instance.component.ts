@@ -10,6 +10,7 @@ export class InstanceComponent implements OnInit {
 
   @Input() instance: any;
   @Output() edit = new EventEmitter<any>();
+  @Output() connect = new EventEmitter<any>();
 
   inProgress = false;
   success = null;
@@ -17,10 +18,6 @@ export class InstanceComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-  }
-
-  connect() {
-    this.api.getConnectionInfo(this.instance.id, this.instance);
   }
 
   delete() {
@@ -32,6 +29,12 @@ export class InstanceComponent implements OnInit {
           this.success = ret.success;
           setTimeout(() => { this.success = null; }, 3000);
         });
+    }
+  }
+
+  connectInstance() {
+    if (this.instance.active) {
+      this.connect.emit(this.instance);
     }
   }
 

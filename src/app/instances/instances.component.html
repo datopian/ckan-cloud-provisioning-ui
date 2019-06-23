@@ -15,6 +15,7 @@
   <app-instance *ngFor='let instance of (api.instances | async)'
                 [instance]='instance'
                 (edit)='edit($event)'
+                (connect)='connnect($event)'
   ></app-instance>
 </div>
 
